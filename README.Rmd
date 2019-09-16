@@ -1,0 +1,55 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+# SECFISH version 0.1.0
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+SECFISH functions were developed within SECFISH project (Strengthening regional cooperation in the area of fisheries  data collection-Socio-economic data collection for fisheries, aquaculture and the processing industry at EU level). The package is aimed at identifying correlations between costs and transversal variables by metier using individual vessel data and for disaggregating variable costs time series from  fleet segment to metier  level.  
+
+
+## Installation
+
+You can install the released version of SECFISH as a .zip package from the R console (at least, for the moment).
+
+
+## Example
+
+This is a basic example which shows how you can carry out, starting from individual vessel data, outcome summarizing an extended exploratory analysis about simple linear correlations between variable costs and effort for a specific fleet segment, at metier level:
+
+```{r example1}
+
+library(SECFISH)
+data(Effort,Landings,Trip,OperID,Operation,Costs_vess, Capacity)
+
+EA(Effort,Landings,Trip,OperID,Operation,Costs_vess, Capacity,30,30,1,path=tempdir())
+
+## basic example code
+```
+You can visualize the results in the folder LinearRegressions, automatically created in your working directory. 
+
+It is possible to test the significance of the metier on the variable costs structure, using the function GLM, as follows:
+
+```{r example2}
+library(SECFISH)
+
+formula1=crewcost~factor(Met_LOA)+Rev_minus_Tot_var_costs+0
+formula2=crewcost~factor(Met_LOA)*Rev_minus_Tot_var_costs+0
+
+GLM(COSTS,30,0.95,formula1,formula2,path=tempdir())
+
+```
+
+You can visualize the results in the folder GLMs, automatically created in your working directory.

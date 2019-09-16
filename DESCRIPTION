@@ -1,0 +1,12 @@
+Package: SECFISH
+Type: Package
+Title: Disaggregate Variable Costs
+Version: 0.1.7
+Author: Isabella Bitetto (COISPA), Loretta Malvarosa (NISEA), Maria Teresa Spedicato (COISPA), Ralf Doering (THUENEN), Joerg Berkenhagen (THUENEN)
+Maintainer: Isabella Bitetto <bitetto@coispa.it>
+Description: These functions were developed within SECFISH project (Strengthening regional cooperation in the area of fisheries  data collection-Socio-economic data collection for fisheries, aquaculture and the processing industry at EU level). They are aimed at identifying  correlations between costs and transversal variables by metier using individual vessel data and for disaggregating variable costs from  fleet segment to metier  level.  
+License: GPL-2
+Depends: R (>= 3.5)
+Imports: ggplot2, Hmisc, optimization
+Encoding: UTF-8
+LazyData: true
